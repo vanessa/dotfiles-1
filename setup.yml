@@ -94,5 +94,4 @@
     - role: finish
       tags:
         - finish
-    - wtanaka.slack
     - wtanaka.chrome
