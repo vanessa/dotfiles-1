@@ -2,33 +2,27 @@
 
 ansible_sudo_pass:
 
-
 # .gitconfig vars
 
 email:
 
 full_name:
 
-
 # Dash-to-Dock
 
 dash_icon_size: 42
-
 
 # Gnome theme name
 
 gnome_theme: Adapta-Eta
 
-
 # API token with gist read/write permissions
 
 github_api_token:
 
-
 # Gist ID with vscode's settings
 
 vscode_gist_id:
-
 
 # pyenv
 
@@ -41,21 +35,17 @@ pyenv_globals: 3.7.4 2.7.16
 node_version: 8.11.4
 nvm_version: 0.34.0
 
-
 # tmux
 
 tmux_version: '2.9'
-
 
 # termite
 
 termite_config_file: 'config.nord'
 
-
 # zsh
 
 zsh_version: '5.5'
-
 
 # psql
 
@@ -63,27 +53,26 @@ psql_role_perms: SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN  # be careful with 
 psql_role_pass:  # your user's role password
 psql_postgres_pass:  # postgres' role password
 
-
 # redis
 
 redis_pass:
-
 
 # elasticsearch
 
 elasticsearch_version: '6.2.4'
 
-
 # ag
 
 ag_version: '2.1.0'
-
 
 # gron
 
 gron_version: '0.5.2'
 
-
 # resty
 
 resty_version: 'master'
+
+# slack
+
+slack_version: '4.2.0'
