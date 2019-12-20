@@ -94,4 +94,3 @@
     - role: finish
       tags:
         - finish
-    - wtanaka.chrome
