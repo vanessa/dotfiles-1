@@ -1,4 +1,4 @@
-# VictorFSF's dotfiles
+# Vanessa's dotfiles
 
 Made with [ansible](https://www.ansible.com/) for [`Ubuntu 18.04 LTS`](http://releases.ubuntu.com/18.04/) (bionic).
 Must be used locally.
@@ -25,3 +25,6 @@ Execute the `run.sh` file:
 # Arguments to the ansible-playbook command can be passed here.
 ./run.sh
 ```
+
+## TODO
+- [ ] Install Google Chrome (https://michaelheap.com/ansible-installing-google-chrome/)
