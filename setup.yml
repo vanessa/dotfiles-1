@@ -94,3 +94,4 @@
     - role: finish
       tags:
         - finish
+    - role: wtanaka.slack
