@@ -1,4 +1,3 @@
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -53,39 +52,50 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting)
+plugins=(
+    git
+    zsh-syntax-highlighting
+    pyenv
+    dotenv
+    bundler
+    zsh-autosuggestions
+)
 autoload -U add-zsh-hook
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+alias zshconfig="mate ~/.zshrc"
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# spaceship-prompt configuration
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+# Check: https://denysdovhan.com/spaceship-prompt/docs/Options.html
+SPACESHIP_PROMPT_ORDER=(
+  time          # Time stamps section
+  user          # Username section
+  dir           # Current directory section
+  venv          # virtualenv section
+  git           # Git section (git_branch + git_status)
+  node          # Node.js section
+  pyenv         # Pyenv section
+  battery       # Battery level and status
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+  exec_time     # Execution time
+  line_sep      # Line break
+  char          # Prompt character
+)
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+SPACESHIP_BATTERY_THRESHOLD=40
+SPACESHIP_VENV_COLOR=blue
+
+# Uncomment the following line to disable auto-setting terminal title.
+
+DISABLE_AUTO_TITLE="true"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
@@ -98,5 +108,19 @@ export WORKON_HOME=~/.virtualenvs
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+pyenv virtualenvwrapper
+
+# Helper functions
+
+delete_old_local_git_branches() {
+    echo "Remember to run git fetch --prune before"
+    # https://erikaybar.name/git-deleting-old-local-branches
+    git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d
+}
+
+kill_celery() {
+  echo "Killing all Celery processes"
+  kill -9 $(ps aux | grep celery | grep -v grep | awk '{print $2}' | tr '\n' ' ') > /dev/null 2>&1
+}
 
 source "$HOME/.dotfiles/dotfiles.sh"

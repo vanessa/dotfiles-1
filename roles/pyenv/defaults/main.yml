@@ -1,2 +1,2 @@
-PYENV_ROOT: '{{ ansible_env.HOME }}/.pyenv'
-pyenv: '{{ PYENV_ROOT }}/bin/pyenv'
+pyenv_root: '{{ ansible_env.HOME }}/.pyenv'
+pyenv: '{{ pyenv_root }}/bin/pyenv'
