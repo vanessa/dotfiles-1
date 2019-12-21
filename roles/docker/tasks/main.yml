@@ -11,6 +11,13 @@
   - import_tasks: install.yml
     when: docker_installed.rc != 0
 
+  - name: Add docker group
+    shell: groupadd docker
+    ignore_errors: true
+
+  - name: Add user to docker group
+    shell: usermod -aG docker {{ ansible_user_id }}
+
   tags:
     - install
     - install-docker

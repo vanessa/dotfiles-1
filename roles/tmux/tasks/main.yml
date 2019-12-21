@@ -1,6 +1,4 @@
-
 - block:
-
   - name: Check tmux version
     command: tmux -V
     register: tmux_installed
@@ -14,11 +12,25 @@
       tmux_installed.rc != 0 or
       tmux_version not in tmux_installed.stdout
 
+  - name: Check if plugins folder exists
+    command: 'ls {{ ansible_env.HOME}}/.tmux/plugins'
+    register: plugins_folder_exists
+    ignore_errors: true
+
+  - name: Create plugins folder
+    file:
+      path: '{{ ansible_env.HOME}}/.tmux/plugins'
+      state: directory
+
   - name: Copy .tmux.conf
     copy:
       src: .tmux.conf
       dest: '{{ ansible_env.HOME }}/.tmux.conf'
       owner: '{{ ansible_user_id }}'
+
+  - import_tasks: tpm.yml
+    tags:
+      - install-tpm
 
   - name: Restart tmux
     command: tmux kill-server

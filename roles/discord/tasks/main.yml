@@ -1,0 +1,14 @@
+- block:
+  - name: Check if Discord is installed
+    command: dpkg-query --show discord
+    register: discord_installed
+    ignore_errors: true
+
+  - name: Install Discord
+    apt:
+      deb: '{{ discord_package_url }}'
+    when: discord_installed.rc != 0
+
+  tags:
+    - install
+    - install-discord

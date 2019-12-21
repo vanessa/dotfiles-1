@@ -27,8 +27,5 @@ Execute the `run.sh` file:
 ```
 
 ## TODO
-- [ ] Install spaceship-prompt
-- [ ] Install Nord theme
 - [ ] Install tmuxinator and create alias
-- [ ] Install Discord
 - [ ] Change wallpaper
