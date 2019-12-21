@@ -21,6 +21,7 @@
       repo: https://github.com/amix/vimrc.git
       dest: '{{ ansible_env.HOME }}/.vim_runtime'
       depth: 1
+      owner: '{{ ansible_user_id }}'
     register: vimrc_sample_output
 
   - name: Debug vimrc_sample_output
