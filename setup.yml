@@ -91,6 +91,9 @@
     - role: adapta
       tags:
         - adapta
+    - role: chrome
+      tags:
+        - chrome
     - role: finish
       tags:
         - finish

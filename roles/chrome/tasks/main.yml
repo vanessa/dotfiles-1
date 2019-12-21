@@ -1,0 +1,31 @@
+- block:
+    - name: Check if Google Chrome is installed
+      command: test -f {{ apt_file }}
+      register: chrome_installed
+      ignore_errors: true
+
+    - name: Add Google Chrome key
+      shell: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+      when: chrome_installed.rc != 0
+
+    - name: Add Google Chrome repo
+      get_url:
+        url: http://dl.google.com/linux/chrome/deb/
+        dest: '{{ apt_file }}'
+        owner: '{{ ansible_user_id }}'
+        mode: 644
+      when: chrome_installed.rc != 0
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+      when: chrome_installed.rc != 0
+
+    - name: Install Google Chrome
+      apt:
+        pkg: google-chrome-stable
+        state: present
+
+  tags:
+    - install
+    - install-chrome

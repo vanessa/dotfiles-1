@@ -27,7 +27,6 @@ Execute the `run.sh` file:
 ```
 
 ## TODO
-- [ ] Install Google Chrome (https://michaelheap.com/ansible-installing-google-chrome/)
 - [ ] Install spaceship-prompt
 - [ ] Install Nord theme
 - [ ] Install tmuxinator and create alias
