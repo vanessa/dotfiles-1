@@ -5,10 +5,16 @@ Must be used locally.
 
 ## Deploy
 
+Clone this repository into `~/.dotfiles/`
+
+```bash
+$ git clone git@github.com:vanessa/dotfiles.git ~/.dotfiles/
+```
+
 Create and configure the local variables:
 
 ```bash
-cp group_vars/local.example group_vars/local
+$ cp group_vars/local.example group_vars/local
 ```
 
 Make sure your ssh private and public keys exist at:
