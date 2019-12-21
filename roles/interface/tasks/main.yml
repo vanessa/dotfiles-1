@@ -55,9 +55,18 @@
       loop:
         - org.gnome.nautilus.desktop.trash-icon-visible
         - org.gnome.nautilus.desktop.volumes-visible
+
+    - name: Show date on top panel
+      gsettings:
+        key: org.gnome.desktop.interface.clock-show-date
+        value: 'true'
+        state: present
+        user: '{{ ansible_user_id }}'
+
     tags:
       - gsettings
       - gsettings-interface
+
 
   - import_tasks: panel-osd.yml
 

@@ -52,6 +52,9 @@
     - role: vscode
       tags:
         - vscode
+    - role: vim
+      tags:
+        - vim
     - role: docker
       tags:
         - docker

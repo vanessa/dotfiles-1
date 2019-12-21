@@ -1,0 +1,33 @@
+- block:
+  - name: Install latest Vim
+    apt:
+      name: vim
+      state: latest
+
+  - name: Make sure Vim plugins folder exists
+    file:
+      path: '{{ ansible_env.HOME }}/.vim/autoload'
+      state: directory
+      owner: '{{ ansible_user_id }}'
+
+  - name: Install vim-plug
+    get_url:
+      url: '{{ vim_plug_url }}'
+      dest: '{{ ansible_env.HOME }}/.vim/autoload/plug.vim'
+      owner: '{{ ansible_user_id }}'
+
+  - name: Copy .vimrc file to correct destination
+    template:
+      src: .vimrc
+      dest: '{{ ansible_env.HOME }}/.vimrc'
+      owner: '{{ ansible_user_id }}'
+
+  - name: Install plugins using vim-plug
+    shell: vim +PlugInstall +qall
+
+  - name: Clean plugins using vim-plug
+    shell: vim '+PlugClean!' +qall
+
+  tags:
+    - install
+    - install-vim

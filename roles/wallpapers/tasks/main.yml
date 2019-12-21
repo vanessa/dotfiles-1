@@ -4,20 +4,20 @@
     file:
       path: '{{ wallpapers_dir }}'
       state: directory
-      owner: "{{ ansible_user_id }}"
+      owner: '{{ ansible_user_id }}'
 
   - block:
     - name: Copy background.jpg
       copy:
         src: background.jpg
         dest: '{{ wallpapers_dir }}/background.jpg'
-        owner: "{{ ansible_user_id }}"
+        owner: '{{ ansible_user_id }}'
 
     - name: Copy screensaver.jpg
       copy:
         src: screensaver.jpg
         dest: '{{ wallpapers_dir }}/screensaver.jpg'
-        owner: "{{ ansible_user_id }}"
+        owner: '{{ ansible_user_id }}'
 
     tags:
       - files
@@ -27,14 +27,14 @@
     - name: Set background
       gsettings:
         key: org.gnome.desktop.background.picture-uri
-        value: "file://{{ wallpapers_dir }}/background.jpg"
+        value: 'file://{{ wallpapers_dir }}/background.jpg'
         state: present
         user: '{{ ansible_user_id }}'
 
     - name: Set screensaver
       gsettings:
         key: org.gnome.desktop.screensaver.picture-uri
-        value: "file:///usr/share/backgrounds/adapta/tealized.jpg"
+        value: 'file://{{ wallpapers_dir }}/screensaver.jpg'
         state: present
         user: '{{ ansible_user_id }}'
 
