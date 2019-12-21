@@ -20,9 +20,9 @@
     tags:
       - install-spaceship
 
-  - import_tasks: extensions/zsh-syntax-highlighting.yml
+  - import_tasks: extensions/zsh-plugins.yml
     tags:
-      - install-zsh-syntax-highlightning
+      - install-zsh-plugins
 
   - name: Copy .zshrc
     copy:
