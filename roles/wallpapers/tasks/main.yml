@@ -13,10 +13,10 @@
         dest: '{{ wallpapers_dir }}/background.jpg'
         owner: "{{ ansible_user_id }}"
 
-    - name: Copy screensaver.png
+    - name: Copy screensaver.jpg
       copy:
-        src: screensaver.png
-        dest: '{{ wallpapers_dir }}/screensaver.png'
+        src: screensaver.jpg
+        dest: '{{ wallpapers_dir }}/screensaver.jpg'
         owner: "{{ ansible_user_id }}"
 
     tags:

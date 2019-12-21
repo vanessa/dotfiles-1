@@ -8,10 +8,6 @@ email:
 
 full_name:
 
-# Dash-to-Dock
-
-dash_icon_size: 42
-
 # Gnome theme name
 
 gnome_theme: Adapta-Eta

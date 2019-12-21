@@ -97,6 +97,9 @@
     - role: flameshot
       tags:
         - flameshot
+    - role: discord
+      tags:
+        - discord
     - role: finish
       tags:
         - finish
