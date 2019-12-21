@@ -2,9 +2,9 @@
 Encoding=UTF-8
 Version=1.0
 Type=Application
-Name=tmux
+Name=Termite
 Icon=utilities-terminal
-Exec=/usr/local/bin/termite-tmux
+Exec=/usr/local/bin/termite
 StartupNotify=false
 StartupWMClass=Termite
 X-UnityGenerated=true

@@ -29,13 +29,6 @@
         path: /lib/terminfo/x
         state: directory
 
-    - name: Copy termite-tmux script
-      copy:
-        src: termite-tmux
-        dest: /usr/local/bin/termite-tmux
-        owner: '{{ ansible_user_id }}'
-        mode: u+x
-
     - name: Copy termite.desktop
       copy:
         src: termite.desktop
@@ -54,13 +47,6 @@
       src: /usr/local/share/terminfo/x/xterm-termite
       dest: /lib/terminfo/x/xterm-termite
       state: link
-
-  - name: Link termite-tmux to gnome-terminal
-    file:
-      src: /usr/local/bin/termite-tmux
-      dest: /usr/bin/gnome-terminal
-      state: link
-      remote_src: yes
 
   tags:
     - install
