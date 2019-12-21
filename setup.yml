@@ -94,6 +94,9 @@
     - role: chrome
       tags:
         - chrome
+    - role: flameshot
+      tags:
+        - flameshot
     - role: finish
       tags:
         - finish

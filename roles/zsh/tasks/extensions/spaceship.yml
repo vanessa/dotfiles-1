@@ -1,0 +1,21 @@
+- name: Clone spaceship-prompt
+git:
+  repo: https://github.com/denysdovhan/spaceship-prompt.git
+  dest: "{{ zsh_custom }}/themes/spaceship-prompt"
+
+- name: Check if custom themes folder exists
+command: ls {{ zsh_custom }}/themes
+register: themes_folder_exists
+ignore_errors: true
+
+- name: Create custom themes folder
+file:
+  path: "{{ zsh_custom }}/themes"
+  state: directory
+when: themes_folder_exists.rc != 0
+
+- name: Link spaceship-theme.zsh-theme to spaceship.zsh-theme
+file:
+  src: "{{ zsh_custom }}/themes/spaceship-prompt/spaceship.zsh-theme"
+  dest: "{{ zsh_custom }}/themes/spaceship.zsh-theme"
+  state: link

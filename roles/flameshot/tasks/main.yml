@@ -1,0 +1,15 @@
+- block:
+    - name: Check if Flameshot is installed
+      command: flameshot config -h
+      register: flameshot_installed
+      ignore_errors: true
+
+    - name: Install Flameshot
+      apt:
+        name: flameshot
+        state: latest
+      when: flameshot_installed.rc != 0
+
+  tags:
+    - install
+    - install-flameshot

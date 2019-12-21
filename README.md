@@ -5,10 +5,10 @@ Must be used locally.
 
 ## Deploy
 
-Create and configure the following file:
+Create and configure the local variables:
 
 ```bash
-group_vars/local  # from group_vars/local.example
+cp group_vars/local.example group_vars/local
 ```
 
 Make sure your ssh private and public keys exist at:
