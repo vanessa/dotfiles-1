@@ -4,6 +4,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+export EDITOR="vim"
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -69,36 +71,41 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-alias zshconfig="mate ~/.zshrc"
+alias zshconfig="$EDITOR ~/.zshrc"
+
+alias mux="tmuxinator"
+
+alias ip="ipython"
+
+alias manage="./manage.py"
 
 # spaceship-prompt configuration
 
 # Check: https://denysdovhan.com/spaceship-prompt/docs/Options.html
 SPACESHIP_PROMPT_ORDER=(
-  time          # Time stamps section
-  user          # Username section
-  dir           # Current directory section
-  venv          # virtualenv section
-  git           # Git section (git_branch + git_status)
-  node          # Node.js section
-  pyenv         # Pyenv section
-  battery       # Battery level and status
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  exec_time     # Execution time
-  line_sep      # Line break
-  char          # Prompt character
+    time # Time stamps section
+    user # Username section
+    dir # Current directory section
+    venv # virtualenv section
+    git # Git section (git_branch + git_status)
+    node # Node.js section
+    pyenv # Pyenv section
+    battery # Battery level and status
+    jobs # Background jobs indicator
+    exit_code # Exit code section
+    exec_time # Execution time
+    line_sep # Line break
+    char # Prompt character
 )
 
 SPACESHIP_BATTERY_THRESHOLD=40
 SPACESHIP_VENV_COLOR=blue
 
 # Uncomment the following line to disable auto-setting terminal title.
-
 DISABLE_AUTO_TITLE="true"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 
@@ -110,8 +117,6 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 pyenv virtualenvwrapper
 
-# Helper functions
-
 delete_old_local_git_branches() {
     echo "Remember to run git fetch --prune before"
     # https://erikaybar.name/git-deleting-old-local-branches
@@ -119,8 +124,8 @@ delete_old_local_git_branches() {
 }
 
 kill_celery() {
-  echo "Killing all Celery processes"
-  kill -9 $(ps aux | grep celery | grep -v grep | awk '{print $2}' | tr '\n' ' ') > /dev/null 2>&1
+    echo "Killing all Celery processes"
+    kill -9 $(ps aux | grep celery | grep -v grep | awk '{print $2}' | tr '\n' ' ') >/dev/null 2>&1
 }
 
 source "$HOME/.dotfiles/dotfiles.sh"

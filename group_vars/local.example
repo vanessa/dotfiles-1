@@ -72,3 +72,7 @@ resty_version: 'master'
 # slack
 
 slack_version: '4.2.0'
+
+# tmuxinator
+
+project_name:

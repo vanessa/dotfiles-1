@@ -1,0 +1,14 @@
+# {{ ansible_env.HOME }}/.config/tmuxinator/{{ project_name }}.yml
+
+name: {{ project_name }}
+root: ~/Projects/{{ project_name }}
+windows:
+  - main:
+      layout: 6f57,160x39,0,0{78x39,0,0,4,82x39,79,0[82x19,9,0,5,82x19,79,20,6]}
+      pre:
+          - workon {{ project_name }}
+          - clear
+      panes:
+          - make run
+          - cd ../com && npm run dev
+          -

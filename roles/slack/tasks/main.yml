@@ -9,6 +9,12 @@
       deb: '{{ slack_deb_url }}'
     when: slack_installed.rc != 0
 
+  - name: Copy slack.desktop
+    copy:
+      src: slack.desktop
+      dest: '{{ ansible_env.HOME }}/.local/share/applications/slack.desktop'
+      owner: '{{ ansible_user_id }}'
+
   tags:
     - install
     - install-slack

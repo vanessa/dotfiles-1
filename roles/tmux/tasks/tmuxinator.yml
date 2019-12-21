@@ -1,0 +1,25 @@
+- name: Checks if Tmuxinator is installed
+  command: tmuxinator -h
+  register: tmuxinator_installed
+  ignore_errors: true
+
+- name: Install Tmuxinator
+  gem:
+    name: tmuxinator
+  when: tmuxinator_installed.rc != 0
+
+- name: Make sure Tmuxinator folder exists
+  file:
+    path: '{{ ansible_env.HOME }}/.config/tmuxinator'
+    state: directory
+
+- debug:
+    msg: 'Variable project_name is not set, skipping project template creation'
+  when: project_name | default(omit) == none
+
+- name: Copy base project file
+  template:
+    src: 'tmuxinator_proj_template.j2'
+    dest: '{{ ansible_env.HOME }}/.config/tmuxinator/{{ project_name }}.yml'
+    owner: '{{ ansible_user_id }}'
+  when: project_name | default(omit) != none
