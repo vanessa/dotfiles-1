@@ -31,3 +31,4 @@ Execute the `run.sh` file:
 - [ ] Install spaceship-prompt
 - [ ] Install Nord theme
 - [ ] Install tmuxinator and create alias
+- [ ] Install Discord
