@@ -31,6 +31,3 @@ Execute the `run.sh` file:
 # Arguments to the ansible-playbook command can be passed here.
 ./run.sh
 ```
-
-## TODO
-- [ ] Install tmuxinator and create alias
