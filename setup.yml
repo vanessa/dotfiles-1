@@ -67,6 +67,12 @@
     - role: psql
       tags:
         - psql
+    - role: vagrant
+      tags:
+        - vagrant
+    - role: azurecli
+      tags:
+        - azurecli
     - role: spotify
       tags:
         - spotify

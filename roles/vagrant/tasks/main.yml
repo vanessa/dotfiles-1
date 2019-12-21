@@ -1,0 +1,17 @@
+- block:
+  - name: Check if Vagrant is installed
+    command: vagrant --version
+    register: vagrant_installed
+    ignore_errors: true
+
+  - name: Install Vagrant and dependencies
+    apt:
+      name: '{{ item }}'
+    loop:
+      - virtualbox
+      - vagrant
+    when: vagrant_installed.rc != 0
+
+  tags:
+    - install
+    - install-vagrant

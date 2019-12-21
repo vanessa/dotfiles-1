@@ -1,0 +1,50 @@
+- block:
+  - name: Check if azure-cli is installed
+    command: az --version
+    register: az_installed
+    ignore_errors: true
+
+  - name: Install azure-cli dependencies
+    apt:
+      name: '{{ item }}'
+      state: latest
+    loop:
+      - ca-certificates
+      - apt-transport-https
+      - lsb-release
+      - gnupg
+
+  - name: Create temporary folder for azure-cli
+    file:
+      dest: /tmp/azure-cli/
+      state: directory
+      owner: '{{ ansible_user_id }}'
+
+  - name: Download Microsoft signing key
+    get_url:
+      url: https://packages.microsoft.com/keys/microsoft.asc
+      dest: /tmp/azure-cli/
+      owner: '{{ ansible_user_id }}'
+
+  - name: Install Microsoft signing key
+    shell: gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
+    become_user: '{{ ansible_user_id }}'
+
+  - name: Get azure-cli repository name
+    shell: lsb_release -cs
+    register: azure_cli_repo_name
+
+  - name: Add azure-cli software repository
+    apt_repository:
+      repo: 'deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ {{ azure_cli_repo_name.stdout }} main'
+      filename: azure-cli
+      state: present
+
+  - name: Install application package
+    apt:
+      name: azure-cli
+      update_cache: true
+
+  tags:
+    - install
+    - install-azure-cli

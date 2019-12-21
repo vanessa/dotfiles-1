@@ -5,6 +5,6 @@
     upgrade: yes
     autoremove: yes
     autoclean: yes
-  tags:
-    - finish
-    - always
+  # tags:
+  #   - finish
+  #   - always
