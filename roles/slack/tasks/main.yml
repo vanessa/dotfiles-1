@@ -1,0 +1,14 @@
+- block:
+  - name: Check if Slack is installed
+    command: dkpg-query -W slack-desktop
+    register: slack_installed
+    ignore_errors: true
+
+  - name: Install Slack
+    apt:
+      deb: '{{ slack_deb_url }}'
+    when: slack_installed.rc != 0
+
+  tags:
+    - install
+    - install-slack

@@ -1,0 +1,1 @@
+slack_deb_url: 'https://downloads.slack-edge.com/linux_releases/slack-desktop-{{ slack_version }}-amd64.deb'

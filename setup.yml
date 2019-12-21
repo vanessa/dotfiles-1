@@ -103,6 +103,9 @@
     - role: telegram
       tags:
         - telegram
+    - role: slack
+      tags:
+        - slack
     - role: finish
       tags:
         - finish

@@ -6,5 +6,6 @@
     'spotify.desktop',
     'discord.desktop',
     'gnome-control-center.desktop',
-    'telegram.desktop'
+    'telegram.desktop',
+    'slack.desktop'
 ]
