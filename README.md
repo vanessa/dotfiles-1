@@ -1,9 +1,8 @@
 # Vanessa's dotfiles
 
-Made with [ansible](https://www.ansible.com/) for [`Ubuntu 18.04 LTS`](http://releases.ubuntu.com/18.04/) (bionic).
-Must be used locally.
+Made with [Ansible](https://www.ansible.com/) for [`Ubuntu 18.04 LTS`](http://releases.ubuntu.com/18.04/) (bionic). Must be used locally.
 
-## Deploy
+## Using
 
 Clone this repository into `~/.dotfiles/`
 
