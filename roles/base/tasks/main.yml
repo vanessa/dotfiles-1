@@ -28,6 +28,7 @@
       - libxml2-dev
       - libncurses5-dev
       - gnome-terminal
+      - lsb-release
       - ruby-dev
       - tmate
     tags:
@@ -42,6 +43,10 @@
     tags:
       - files
       - files-git
+
+  - name: Set current release name
+    set_fact:
+      release_name: lsb_release -cs
 
   tags:
     - install

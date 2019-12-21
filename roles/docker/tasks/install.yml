@@ -15,8 +15,7 @@
 
 - name: Add Docker's repository
   apt_repository:
-    # TODO: change "artful" to "bionic" as soon as possible
-    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu artful stable
+    repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ release_name.stdout }} stable'
     state: present
     filename: docker
 

@@ -12,12 +12,10 @@ full_name:
 
 gnome_theme: Adapta-Eta
 
-# API token with gist read/write permissions
+# GitHub API token with gist read/write permissions and VSCode settings created by
+# Settings Sync extension, read more: https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync
 
 github_api_token:
-
-# Gist ID with vscode's settings
-
 vscode_gist_id:
 
 # pyenv
@@ -80,3 +78,7 @@ project_name:
 # docker
 
 docker_compose_version: '1.25.0'
+
+# flameshot
+
+override_default_keybindings: true
