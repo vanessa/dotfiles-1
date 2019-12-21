@@ -16,6 +16,21 @@
       dest: '{{ ansible_env.HOME }}/.vim/autoload/plug.vim'
       owner: '{{ ansible_user_id }}'
 
+  - name: Clone sample vimrc repository
+    git:
+      repo: https://github.com/amix/vimrc.git
+      dest: '{{ ansible_env.HOME }}/.vim_runtime'
+      depth: 1
+    register: vimrc_sample_output
+
+  - name: Debug vimrc_sample_output
+    debug:
+      var: vimrc_sample_output
+
+  - name: Install sample vimrc
+    shell: 'sh {{ ansible_env.HOME }}/.vim_runtime/install_awesome_vimrc.sh'
+
+  # Ordering matters
   - name: Copy .vimrc file to correct destination
     template:
       src: .vimrc
