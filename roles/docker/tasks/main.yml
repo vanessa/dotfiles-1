@@ -18,9 +18,9 @@
   - name: Add user to docker group
     shell: usermod -aG docker {{ ansible_user_id }}
 
-  - name: Check if docker-compose is installed
+  - name: Check docker-compose version
     command: docker-compose --version
-    register: docker_compose_installed
+    register: docker_compose_current_version
     ignore_errors: true
 
   - name: Get current OS name and version
@@ -29,10 +29,12 @@
 
   - name: Install docker-compose
     get_url:
-      url: 'https://github.com/docker/compose/releases/download/1.25.0/docker-compose-{{ os_name_version.stdout }}'
+      url: 'https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ os_name_version.stdout }}'
       dest: /usr/local/bin/docker-compose
       mode: 0755
-    when: docker_compose_installed.rc != 0
+    when: >
+      docker_compose_current_version.stdout is defined
+      and docker_compose_version not in docker_compose_current_version.stdout
 
   tags:
     - install

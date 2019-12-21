@@ -76,3 +76,7 @@ slack_version: '4.2.0'
 # tmuxinator
 
 project_name:
+
+# docker
+
+docker_compose_version: '1.25.0'
