@@ -1,0 +1,11 @@
+- block:
+  - name: Clone nord-gnome-terminal
+    git:
+      repo: https://github.com/arcticicestudio/nord-gnome-terminal.git
+      dest: /tmp/nord-gnome-terminal
+
+  - name: Install nord-gnome-terminal theme
+    shell: /tmp/nord-gnome-terminal/src/nord.sh
+
+  tags:
+    - install-terminal-theme

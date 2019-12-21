@@ -61,6 +61,8 @@
 
   - import_tasks: panel-osd.yml
 
+  - import_tasks: terminal.yml
+
   tags:
     - install
     - install-interface

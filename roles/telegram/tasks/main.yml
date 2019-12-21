@@ -1,0 +1,10 @@
+- block:
+  - name: Check if Telegram is installed
+    command: dpkg-query -W telegram-desktop
+    register: telegram_installed
+    ignore_errors: true
+
+  - name: Install Telegram
+    snap:
+      name: telegram-desktop
+    when: telegram_installed.rc != 0
