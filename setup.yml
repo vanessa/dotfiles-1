@@ -73,6 +73,9 @@
     - role: azurecli
       tags:
         - azurecli
+    - role: azuredatastudio
+      tags:
+        - azuredatastudio
     - role: spotify
       tags:
         - spotify

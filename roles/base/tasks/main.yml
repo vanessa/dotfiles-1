@@ -29,6 +29,7 @@
       - libncurses5-dev
       - gnome-terminal
       - ruby-dev
+      - tmate
     tags:
       - deps
       - deps-base

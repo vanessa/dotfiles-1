@@ -1,0 +1,8 @@
+- block:
+  - name: Install Azure Data Studio
+    apt:
+      deb: https://go.microsoft.com/fwlink/?linkid=2113344
+
+  tags:
+    - install
+    - install-azure-data-studio
