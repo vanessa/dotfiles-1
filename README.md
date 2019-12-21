@@ -28,4 +28,3 @@ Execute the `run.sh` file:
 
 ## TODO
 - [ ] Install tmuxinator and create alias
-- [ ] Change wallpaper
