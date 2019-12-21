@@ -21,15 +21,11 @@
       repo: https://github.com/amix/vimrc.git
       dest: '{{ ansible_env.HOME }}/.vim_runtime'
       depth: 1
-      owner: '{{ ansible_user_id }}'
     register: vimrc_sample_output
 
-  - name: Debug vimrc_sample_output
-    debug:
-      var: vimrc_sample_output
-
   - name: Install sample vimrc
-    shell: 'sh {{ ansible_env.HOME }}/.vim_runtime/install_awesome_vimrc.sh'
+    shell: 'sh ~/.vim_runtime/install_awesome_vimrc.sh'
+    become_user: '{{ ansible_user_id }}'
 
   # Ordering matters
   - name: Copy .vimrc file to correct destination
