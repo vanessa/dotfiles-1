@@ -32,3 +32,4 @@ Execute the `run.sh` file:
 - [ ] Install Nord theme
 - [ ] Install tmuxinator and create alias
 - [ ] Install Discord
+- [ ] Change wallpaper
