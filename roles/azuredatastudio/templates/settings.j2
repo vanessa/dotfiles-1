@@ -1,0 +1,35 @@
+{
+    "workbench.enablePreviewFeatures": true,
+    "datasource.connectionGroups": [
+        {
+            "name": "ROOT",
+            "id": "C777F06B-202E-4480-B475-FA416154D458"
+        },
+        {% if project_name is defined %}
+        {
+            "name": "{{ project_name }}",
+            "id": "97016b18-7647-4ec6-946e-88bcde1c7212",
+            "parentId": "C777F06B-202E-4480-B475-FA416154D458",
+            "color": "#4452A6",
+            "description": ""
+        },
+        {% endif %}
+        {
+            "name": "personal",
+            "id": "6c553f71-16d0-4bab-bc50-bc2593dd4faa",
+            "parentId": "C777F06B-202E-4480-B475-FA416154D458",
+            "color": "#914576",
+            "description": ""
+        }
+    ],
+    "datasource.connections": [],
+    "[sql]": {
+        "editor.defaultFormatter": "Microsoft.azuredatastudio-postgresql"
+    },
+    "editor.fontFamily": "Fira Code",
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Default Dark Azure Data Studio",
+    "workbench.startupEditor": "none",
+    "editor.fontSize": 13,
+    "editor.fontWeight": "500"
+}

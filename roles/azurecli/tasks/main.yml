@@ -32,7 +32,7 @@
 
   - name: Add azure-cli software repository
     apt_repository:
-      repo: 'deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ {{ ansible_facts.ansible_distribution_release }} main'
+      repo: 'deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ {{ ansible_distribution_release }} main'
       filename: azure-cli
       state: present
 
@@ -40,6 +40,11 @@
     apt:
       name: azure-cli
       update_cache: true
+
+  - name: Remove azure-cli temporary folder
+    file:
+      path: /tmp/azure-cli/
+      state: absent
 
   tags:
     - install

@@ -1,0 +1,1 @@
+azuredatastudio_configs: '{{ ansible_env.HOME }}/.config/azuredatastudio/User'

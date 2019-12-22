@@ -1,7 +1,28 @@
 - block:
+  - name: Check if Azure Data Studio is installed
+    command: dpkg-query -W azuredatastudio
+    register: azuredatastudio_installed
+    ignore_errors: true
+
   - name: Install Azure Data Studio
     apt:
       deb: https://go.microsoft.com/fwlink/?linkid=2113344
+      state: present
+    when: azuredatastudio_installed.rc != 0
+
+  - name: Install extensions
+    command: 'azuredatastudio --install-extension {{ item }}'
+    loop:
+      - michael-wolfenden.sqlops-theme-onedark
+      - Microsoft.azuredatastudio-postgresql
+    become_user: '{{ ansible_user_id }}'
+    ignore_errors: true
+
+  - name: Sync settings.json file
+    template:
+      src: 'settings.j2'
+      dest: '{{ azuredatastudio_configs }}/settings.json'
+      owner: '{{ ansible_user_id }}'
 
   tags:
     - install
