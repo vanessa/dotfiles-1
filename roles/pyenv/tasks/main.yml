@@ -62,8 +62,8 @@
       repo: https://github.com/pyenv/pyenv-virtualenvwrapper.git
       dest: '{{ pyenv_root }}/plugins/pyenv-virtualenvwrapper'
 
-  - name: Install pipenv and flake8 with pyenv's pip
-    command: '{{ pyenv_root }}/shims/pip install flake8 pipenv'
+  - name: Install useful packages with pyenv's pip
+    command: '{{ pyenv_root }}/shims/pip install flake8 pipenv ipython'
     become_user: '{{ ansible_user_id }}'
 
   tags:
