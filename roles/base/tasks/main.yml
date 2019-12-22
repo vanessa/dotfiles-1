@@ -1,6 +1,4 @@
-
 - block:
-
   - name: Update and upgrade installed packages
     apt:
       update_cache: yes
@@ -30,6 +28,7 @@
       - gnome-terminal
       - ruby-dev
       - tmate
+      - htop
     tags:
       - deps
       - deps-base
