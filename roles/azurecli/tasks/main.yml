@@ -30,13 +30,9 @@
     shell: gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
     become_user: '{{ ansible_user_id }}'
 
-  - name: Get release code name
-    shell: lsb_release -cs
-    register: release_name
-
   - name: Add azure-cli software repository
     apt_repository:
-      repo: 'deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ {{ release_name.stdout }} main'
+      repo: 'deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ {{ ansible_facts.ansible_distribution_release }} main'
       filename: azure-cli
       state: present
 

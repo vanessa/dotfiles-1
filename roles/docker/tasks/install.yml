@@ -15,7 +15,7 @@
 
 - name: Add Docker's repository
   apt_repository:
-    repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ release_name.stdout }} stable'
+    repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_facts.ansible_distribution_release }} stable'
     state: present
     filename: docker
 
