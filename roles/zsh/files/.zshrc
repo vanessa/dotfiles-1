@@ -62,6 +62,7 @@ plugins=(
     bundler
     zsh-autosuggestions
 )
+
 autoload -U add-zsh-hook
 
 source $ZSH/oh-my-zsh.sh

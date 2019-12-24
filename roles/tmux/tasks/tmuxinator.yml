@@ -6,6 +6,8 @@
 - name: Install Tmuxinator
   gem:
     name: tmuxinator
+    state: present
+  become_user: '{{ ansible_user_id }}'
   when: tmuxinator_installed.rc != 0
 
 - name: Make sure Tmuxinator folder exists
