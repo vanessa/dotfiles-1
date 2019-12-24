@@ -27,7 +27,6 @@
     shell: 'sh ~/.vim_runtime/install_awesome_vimrc.sh'
     become_user: '{{ ansible_user_id }}'
 
-  # Ordering matters
   - name: Copy .vimrc file to correct destination
     template:
       src: .vimrc
@@ -36,9 +35,6 @@
 
   - name: Install plugins using vim-plug
     shell: vim +PlugInstall +qall
-
-  - name: Clean plugins using vim-plug
-    shell: vim '+PlugClean!' +qall
 
   tags:
     - install
