@@ -12,7 +12,6 @@
     apt:
       name: exuberant-ctags
       state: present
-    become_user: '{{ ansible_user_id }}'
 
   - name: Download and install vscode
     apt:

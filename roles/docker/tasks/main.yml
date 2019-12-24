@@ -3,7 +3,7 @@
   - name: Check if docker is installed
     command: docker -v
     register: docker_installed
-    ignore_errors: yes
+    ignore_errors: true
     tags:
       - check
       - check-docker
@@ -31,10 +31,11 @@
     get_url:
       url: 'https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ os_name_version.stdout }}'
       dest: /usr/local/bin/docker-compose
-      mode: 0755
+      owner: '{{ ansible_user_id }}'
     when: >
       docker_compose_current_version.stdout is defined
       and docker_compose_version not in docker_compose_current_version.stdout
+      or docker_compose_current_version.stdout is not defined
 
   tags:
     - install

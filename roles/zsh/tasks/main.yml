@@ -27,8 +27,8 @@
   - name: Copy .zshrc
     copy:
       src: .zshrc
-      dest: "{{ ansible_env.HOME }}/.zshrc"
-      owner: "{{ ansible_user_id }}"
+      dest: '{{ ansible_env.HOME }}/.zshrc'
+      owner: '{{ ansible_user_id }}'
     tags:
      - files
      - files-zsh

@@ -3,7 +3,7 @@
   unarchive:
     src: https://github.com/tmux/tmux/releases/download/{{ tmux_version }}/tmux-{{ tmux_version }}.tar.gz
     dest: /tmp/
-    remote_src: yes
+    remote_src: true
 
 - name: Install tmux dependencies
   apt:

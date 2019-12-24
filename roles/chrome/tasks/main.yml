@@ -9,16 +9,14 @@
       when: chrome_installed.rc != 0
 
     - name: Add Google Chrome repo
-      get_url:
-        url: http://dl.google.com/linux/chrome/deb/
-        dest: '{{ apt_file }}'
-        owner: '{{ ansible_user_id }}'
-        mode: 644
-      when: chrome_installed.rc != 0
+      apt_repository:
+        repo: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
+        filename: google-chrome-beta
+        state: present
 
     - name: Update apt cache
       apt:
-        update_cache: yes
+        update_cache: true
       when: chrome_installed.rc != 0
 
     - name: Install Google Chrome

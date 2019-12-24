@@ -17,7 +17,7 @@
       unarchive:
         src: '{{ ag_url }}'
         dest: /tmp/
-        remote_src: yes
+        remote_src: true
         owner: '{{ ansible_user_id }}'
 
   - name: Install Ag

@@ -4,7 +4,7 @@
   - name: Check if Termite is installed
     command: termite --version
     register: termite_installed
-    ignore_errors: yes
+    ignore_errors: true
     tags:
       - check
       - check-termite

@@ -3,7 +3,7 @@
   unarchive:
     src: '{{ zsh_download }}'
     dest: /tmp/
-    remote_src: yes
+    remote_src: true
 
 - name: Install zsh
   command: chdir=/tmp/zsh-{{ zsh_version }} {{ item }}

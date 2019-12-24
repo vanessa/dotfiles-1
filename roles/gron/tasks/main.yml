@@ -3,7 +3,7 @@
   - name: Check if gron is installed
     command: gron --version
     register: gron_installed
-    ignore_errors: yes
+    ignore_errors: true
     tags:
       - check
       - check-gron
@@ -12,7 +12,7 @@
     unarchive:
       src: '{{ gron_url }}'
       dest: /usr/local/bin/
-      remote_src: yes
+      remote_src: true
       owner: '{{ ansible_user_id }}'
     when: >
       gron_installed.rc != 0 or

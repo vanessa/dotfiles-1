@@ -39,7 +39,7 @@
     shell: bash -c '{{ nvm_source }} && nvm ls | grep "default" | head -1 | grep "{{ node_version }}"'
     register: nvm_check_default
     changed_when: no
-    ignore_errors: yes
+    ignore_errors: true
     tags:
       - check
       - check-nvm

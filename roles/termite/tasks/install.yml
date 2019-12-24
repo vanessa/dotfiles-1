@@ -27,7 +27,7 @@
 - name: Clone Termite's repository
   git:
     repo: https://github.com/thestinger/termite.git
-    recursive: yes
+    recursive: true
     dest: /tmp/termite
 
 - name: Install Termite
@@ -48,9 +48,9 @@
   apt:
     name: gnome-terminal
     state: absent
-    purge: yes
-    autoclean: yes
-    autoremove: yes
+    purge: true
+    autoclean: true
+    autoremove: true
 
 - name: Remove /tmp/termite
   file:

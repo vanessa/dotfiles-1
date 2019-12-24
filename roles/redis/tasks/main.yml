@@ -5,17 +5,17 @@
     - name: Check if Redis is installed
       command: redis-server -v
       register: redis_installed
-      ignore_errors: yes
+      ignore_errors: true
 
     - name: Check if Redis group exists
       command: getent group redis
       register: redis_group_exists
-      ignore_errors: yes
+      ignore_errors: true
 
     - name: Check if Redis user exists
       command: id -u redis
       register: redis_user_exists
-      ignore_errors: yes
+      ignore_errors: true
     tags:
       - check
       - check-redis
@@ -26,14 +26,14 @@
   - name: Configure Redis group
     group:
       name: redis
-      system: yes
+      system: true
       state: present
     when: redis_group_exists.rc != 0
 
   - name: Configure Redis user
     user:
       name: redis
-      system: yes
+      system: true
       create_home: no
       group: redis
       state: present
