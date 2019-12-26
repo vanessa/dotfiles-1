@@ -1,0 +1,15 @@
+- name: Add capitaine-cursors ppa
+  apt_repository:
+    repo: 'ppa:dyatlov-igor/la-capitaine'
+
+- name: Install capitaine-cursors
+  apt:
+    name: 'la-capitaine-cursor-theme'
+    state: latest
+
+- name: Set capitaine-cursors as cursor theme
+  gsettings:
+    key: org.gnome.desktop.interface.cursor-theme
+    value: "'Capitaine'"
+    state: present
+    user: '{{ ansible_user_id }}'

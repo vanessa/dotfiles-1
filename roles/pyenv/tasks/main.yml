@@ -63,7 +63,7 @@
       dest: '{{ pyenv_root }}/plugins/pyenv-virtualenvwrapper'
 
   - name: Install useful packages with pyenv's pip
-    command: '{{ pyenv_root }}/shims/pip install flake8 pipenv ipython black'
+    command: '{{ pyenv_root }}/shims/pip install flake8 pipenv ipython black pylint'
     become_user: '{{ ansible_user_id }}'
 
   tags:
