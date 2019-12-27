@@ -1,8 +1,0 @@
-
-- name: Install Transmission BitTorrent Client
-  apt:
-    name: transmission
-    state: latest
-  tags:
-    - install
-    - install-transmission

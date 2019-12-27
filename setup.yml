@@ -85,9 +85,6 @@
     - role: heroku
       tags:
         - heroku
-    - role: transmission
-      tags:
-        - transmission
     - role: gimp
       tags:
        - gimp
