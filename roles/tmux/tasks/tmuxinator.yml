@@ -7,13 +7,13 @@
   gem:
     name: tmuxinator
     state: present
-  become_user: '{{ ansible_user_id }}'
   when: tmuxinator_installed.rc != 0
 
 - name: Make sure Tmuxinator folder exists
   file:
     path: '{{ ansible_env.HOME }}/.config/tmuxinator'
     state: directory
+    owner: '{{ ansible_user_id }}'
 
 - debug:
     msg: 'Variable project_name is not set, skipping project template creation'
