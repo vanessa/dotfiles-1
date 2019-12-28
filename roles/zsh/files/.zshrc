@@ -10,7 +10,7 @@ export EDITOR="vim"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-ZSH_THEME="spaceship"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -29,7 +29,7 @@ ZSH_THEME="spaceship"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -58,11 +58,9 @@ plugins=(
     git
     zsh-syntax-highlighting
     pyenv
-    dotenv
     bundler
     zsh-autosuggestions
 )
-
 autoload -U add-zsh-hook
 
 source $ZSH/oh-my-zsh.sh
@@ -102,13 +100,16 @@ SPACESHIP_PROMPT_ORDER=(
 SPACESHIP_BATTERY_THRESHOLD=40
 SPACESHIP_VENV_COLOR=blue
 
-# Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
+# nvm
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
+# fzf
+
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
+
+# pyenv
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -117,6 +118,8 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 pyenv virtualenvwrapper
+
+# helpers
 
 delete_old_local_git_branches() {
     echo "Remember to run git fetch --prune before"
