@@ -1,0 +1,13 @@
+- block:
+  - name: Add Peek repository
+    apt_repository:
+      repo: 'ppa:peek-developers/stable'
+
+  - name: Install Peek
+    apt:
+      name: peek
+      state: latest
+
+  tags:
+    - install
+    - install-peek

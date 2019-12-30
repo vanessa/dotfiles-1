@@ -106,6 +106,9 @@
     - role: flameshot
       tags:
         - flameshot
+    - role: peek
+      tags:
+        - peek
     - role: discord
       tags:
         - discord
