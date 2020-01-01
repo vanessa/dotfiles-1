@@ -4,9 +4,7 @@
   ignore_errors: true
 
 - name: Install Tmuxinator
-  gem:
-    name: tmuxinator
-    state: present
+  command: '{{ ansible_env.HOME }}/.rbenv/shims/gem install tmuxinator'
   when: tmuxinator_installed.rc != 0
 
 - name: Make sure Tmuxinator folder exists

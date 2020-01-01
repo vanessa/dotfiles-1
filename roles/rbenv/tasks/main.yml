@@ -1,0 +1,59 @@
+- block:
+  - name: Check if rbenv is installed
+    command: '{{ rbenv }} versions'
+    become_user: '{{ ansible_user_id }}'
+    register: rbenv_versions
+    ignore_errors: true
+
+  - name: Uninstall actual Ruby version
+    apt:
+      name: ruby
+      state: absent
+      purge: true
+      autoclean: true
+      autoremove: true
+    when: rbenv_versions.rc != 0
+
+  - name: Install rbenv dependencies
+    apt:
+      name: '{{ item }}'
+      state: latest
+    loop:
+      - gcc
+      - g++
+    when: rbenv_versions.rc != 0
+
+  - name: Clone rbenv
+    git:
+      repo: https://github.com/rbenv/rbenv.git
+      dest: '{{ ansible_env.HOME }}/.rbenv'
+    become_user: '{{ ansible_user_id }}'
+    when: rbenv_versions.rc != 0
+
+  - name: Clone ruby-build
+    git:
+      repo: https://github.com/rbenv/ruby-build.git
+      dest: '{{ ansible_env.HOME }}/.rbenv/plugins/ruby-build'
+    become_user: '{{ ansible_user_id }}'
+    when: rbenv_versions.rc != 0
+
+  - name: Assert ruby_version variable is defined
+    assert:
+      that:
+        - ruby_version is defined
+      msg: 'Variable ruby_version is not defined'
+
+  - name: Install Ruby v{{ ruby_version }}
+    command: '{{ rbenv }} install {{ ruby_version }}'
+    become_user: '{{ ansible_user_id }}'
+    when: >
+      rbenv_versions.rc != 0 or
+      ruby_version not in rbenv_versions.stdout
+
+  - name: Set rbenv globals
+    command: '{{ rbenv }} global {{ ruby_version }}'
+    become_user: '{{ ansible_user_id }}'
+
+  tags:
+    - install
+    - install-rbenv

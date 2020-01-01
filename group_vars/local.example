@@ -24,6 +24,10 @@ python3_version: 3.8.0
 python2_version: 2.7.16
 pyenv_globals: 3.8.0 2.7.16
 
+# rbenv
+
+ruby_version: 2.7.0
+
 # nvm
 
 node_version: 12.14.0

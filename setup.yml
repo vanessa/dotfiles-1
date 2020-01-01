@@ -43,6 +43,9 @@
     - role: pyenv
       tags:
         - pyenv
+    - role: rbenv
+      tags:
+        - rbenv
     - role: tmux
       tags:
         - tmux

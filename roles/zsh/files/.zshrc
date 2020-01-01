@@ -119,6 +119,13 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 pyenv virtualenvwrapper
 
+# rbenv
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
 # helpers
 
 delete_old_local_git_branches() {
