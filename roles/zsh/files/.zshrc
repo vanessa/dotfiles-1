@@ -10,7 +10,7 @@ export EDITOR="vim"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="bira"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -82,19 +82,19 @@ alias manage="./manage.py"
 
 # Check: https://denysdovhan.com/spaceship-prompt/docs/Options.html
 SPACESHIP_PROMPT_ORDER=(
-    time # Time stamps section
-    user # Username section
-    dir # Current directory section
-    venv # virtualenv section
-    git # Git section (git_branch + git_status)
-    node # Node.js section
-    pyenv # Pyenv section
-    battery # Battery level and status
-    jobs # Background jobs indicator
+    time      # Time stamps section
+    user      # Username section
+    dir       # Current directory section
+    venv      # virtualenv section
+    git       # Git section (git_branch + git_status)
+    node      # Node.js section
+    pyenv     # Pyenv section
+    battery   # Battery level and status
+    jobs      # Background jobs indicator
     exit_code # Exit code section
     exec_time # Execution time
-    line_sep # Line break
-    char # Prompt character
+    line_sep  # Line break
+    char      # Prompt character
 )
 
 SPACESHIP_BATTERY_THRESHOLD=40
@@ -128,15 +128,20 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 # helpers
 
-delete_old_local_git_branches() {
+delete_old_local_git_branches () {
     echo "Remember to run git fetch --prune before"
     # https://erikaybar.name/git-deleting-old-local-branches
     git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d
 }
 
-kill_celery() {
+kill_celery () {
     echo "Killing all Celery processes"
     kill -9 $(ps aux | grep celery | grep -v grep | awk '{print $2}' | tr '\n' ' ') >/dev/null 2>&1
+}
+
+stop_docker_name () {
+    CONTAINER_NAME=$1
+    docker ps -a | grep $CONTAINER_NAME | awk '{print $1}' | xargs docker stop
 }
 
 source "$HOME/.dotfiles/dotfiles.sh"
