@@ -6,14 +6,11 @@
         path: '{{ ansible_env.HOME }}/.fonts'
         state: directory
 
-    - name: Install Fira Mono for Powerline
+    - name: Install fonts
       copy:
         src: '{{ item }}'
         dest: '{{ ansible_env.HOME }}/.fonts/{{ item }}'
-      loop:
-        - FiraMono-Regular Powerline.otf
-        - FiraMono-Medium Powerline.otf
-        - FiraMono-Bold Powerline.otf
+      with_lines: 'find {{ ansible_env.HOME }}/.dotfiles/roles/fonts/files'
 
     tags:
       - files

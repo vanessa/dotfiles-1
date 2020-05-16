@@ -16,11 +16,11 @@
     template:
       src: config.j2
       dest: /tmp/config.sql
-      owner: postgres
+      owner: '{{ ansible_user_id }}'
 
   - name: Configure Postgres
     command: psql -f /tmp/config.sql
-    become_user: postgres
+    become_user: '{{ ansible_user_id }}'
     register: sql_executed
     failed_when: "'ERROR' in sql_executed.stderr"
 

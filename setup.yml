@@ -13,9 +13,11 @@
     - role: base
       tags:
         - base
+        - wsl
     - role: git
       tags:
         - git
+        - wsl
     - role: interface
       tags:
         - interface
@@ -25,30 +27,39 @@
     - role: zsh
       tags:
         - zsh
+        - wsl
     - role: fzf
       tags:
         - fzf
+        - wsl
     - role: ag
       tags:
         - ag
+        - wsl
     - role: gron
       tags:
         - gron
+        - wsl
     - role: resty
       tags:
         - resty
+        - wsl
     - role: nvm
       tags:
         - nvm
+        - wsl
     - role: pyenv
       tags:
         - pyenv
+        - wsl
     - role: rbenv
       tags:
         - rbenv
+        - wsl
     - role: tmux
       tags:
         - tmux
+        - wsl
     - role: termite
       tags:
         - termite
@@ -58,24 +69,31 @@
     - role: vim
       tags:
         - vim
+        - wsl
     - role: docker
       tags:
         - docker
+        - wsl
     - role: elasticsearch
       tags:
         - elasticsearch
+        - wsl
     - role: redis
       tags:
         - redis
+        - wsl
     - role: psql
       tags:
         - psql
+        - wsl
     - role: vagrant
       tags:
         - vagrant
+        - wsl
     - role: azurecli
       tags:
         - azurecli
+        - wsl
     - role: azuredatastudio
       tags:
         - azuredatastudio
@@ -124,3 +142,4 @@
     - role: finish
       tags:
         - finish
+        - wsl
