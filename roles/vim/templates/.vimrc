@@ -17,6 +17,5 @@ call plug#end()
 
 filetype plugin indent on
 syntax on
-colorscheme nord
 
 set guifont=Fira\ Mono\ for\ Powerline\ Medium\ 10
