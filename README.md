@@ -17,11 +17,11 @@ Made with [Ansible](https://www.ansible.com/) for [`Ubuntu 18.04 LTS`](http://re
     $ cp group_vars/local.example group_vars/local
     $ nano group_vars/local # or vim group_vars/local
     ```
-1. Make sure your SSH private and public keys exist (`id_rsa` and `id_rsa.pub`). You should have because you executed the first step of this checklist. Check if they exist with:
+1. Make sure your SSH private and public keys exist (`id_ed25519` and `id_ed25519.pub`). You should have because you executed the first step of this checklist. Check if they exist with:
 
     ```bash
-    $ ls ~/.ssh | grep id_rsa
-    # Make sure id_rsa and id_rsa.pub show on the output
+    $ ls ~/.ssh | grep id_ed25519
+    # Make sure id_ed25519 and id_ed25519.pub show on the output
     ```
 1. Execute the `run.sh` file:
 

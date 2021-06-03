@@ -20,18 +20,18 @@ vscode_gist_id:
 
 # pyenv
 
-python3_version: 3.8.0
-python2_version: 2.7.16
-pyenv_globals: 3.8.0 2.7.16
+python3_version: 3.9.5
+python2_version: 2.7.18
+pyenv_globals: 3.9.5 2.7.18
 
 # rbenv
 
-ruby_version: 2.7.0
+ruby_version: 3.0.1
 
 # nvm
 
-node_version: 12.14.0
-nvm_version: 0.35.2
+node_version: 14.17.0
+nvm_version: 0.38.0
 
 # tmux
 
@@ -43,7 +43,7 @@ termite_config_file: 'config.nord'
 
 # zsh
 
-zsh_version: '5.5'
+zsh_version: '5.8'
 
 # psql
 

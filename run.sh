@@ -8,7 +8,7 @@ if ! command -v ansible-playbook >/dev/null; then
     sudo apt-get install -y ansible
 fi
 
-ssh_private="$HOME/.ssh/id_rsa"
+ssh_private="$HOME/.ssh/id_ed25519"
 ssh_public="${ssh_private}.pub"
 
 if [[ ! -f "$ssh_private" ]] || [[ ! -f "$ssh_public" ]]; then
